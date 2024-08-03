@@ -11,6 +11,27 @@ export default function HomePage() {
         <h1 className={`pl-5 pt-5 text-2xl font-extrabold`}>
           Super<span className={`text-white`}>Save</span>
         </h1>
+
+        <div className={` flex w-full items-center justify-center my-10`}>
+          <img src={"./wallet.png"} className="h-[30vh] w-auto" />
+        </div>
+
+        <p
+          className={`flex w-full items-center justify-center p-4 text-center`}
+        >
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry standard dummy text ever
+          since the 1500s, when an unknown printer took
+        </p>
+
+        <div className={`mt-4  flex items-center justify-center`}>
+          <Link
+            href={"/deposit"}
+            className={`rounded-lg border-2 border-white bg-white px-8  py-2 text-center font-bold`}
+          >
+            Deposit Now
+          </Link>
+        </div>
       </div>
     </div>
   )
