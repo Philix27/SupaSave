@@ -3,26 +3,8 @@
 import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import { ZodType, z } from "zod"
 
-export const schema = z.object({
-  amount: z.number(),
-  purpose: z
-    .string()
-    .min(3, { message: "must contain 3 to 10 words " })
-    .max(10, { message: "must contain 3 to 10 words " }),
-
-  sholdLock: z.boolean().refine((val) => val === true, {
-    message: "You must lock your funds",
-  }),
-
-  duration: z.enum(["1week", "2weeks", "3weeks", "4weeks", "5weeks"], {
-    errorMap: () => ({ message: "Please select a valid duration" }),
-  }),
-})
-
-export type FormData = z.infer<typeof schema>
+import { FormData, schema } from "./schema"
 
 export default function DepositPage() {
   const {
