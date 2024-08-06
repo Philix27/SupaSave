@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function DepositPage() {
+export default function WithdrawalPage() {
   return (
     <div className={`mt-[70px]`}>
       <div className={`px-4`}>
