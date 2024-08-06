@@ -1,6 +1,6 @@
 "use client"
 
-import { ZodType, z } from "zod"
+import { z } from "zod"
 
 export const schema = z.object({
   amount: z.number(),
@@ -20,7 +20,7 @@ export const schema = z.object({
 
 export type FormData = z.infer<typeof schema>
 
-export default function durationTranformer(duration: string): number {
+export function durationTranformer(duration: string): number {
   if (duration === "1week") {
     return 1000
   } else if (duration === "2weeks") {

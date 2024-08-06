@@ -19,9 +19,11 @@ export default function HomePage() {
         <p
           className={`flex w-full items-center justify-center p-4 text-center`}
         >
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry standard dummy text ever
-          since the 1500s, when an unknown printer took
+           Welcome to SupaSave, where you can
+          securely lock your funds for a set
+          period, helping you grow your savings 
+          effortlessly. Plan for the future
+          with confidence—start saving smarter today!
         </p>
 
         <div className={`mt-4  flex items-center justify-center`}>
