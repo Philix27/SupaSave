@@ -1,6 +1,6 @@
 import { BrowserProvider, ethers } from "ethers"
 
-import { collector } from "../utils/env"
+import { collector } from "./env"
 
 export const TokenAddress = {
   CUSD_MAINNET: "0x765DE816845861e75A25fCA122bb6898B8B1282a",

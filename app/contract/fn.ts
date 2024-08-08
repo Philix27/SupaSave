@@ -1,7 +1,7 @@
 import { BrowserProvider, ethers } from "ethers"
 
-import { AppContract, TokenAddress } from ".."
-import { geAppContract } from "../utils"
+import { AppContract, TokenAddress } from "."
+import { geAppContract } from "./utils"
 
 export async function withdraw(props: {
   userAddress: `0x${string}`
