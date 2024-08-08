@@ -1,5 +1,7 @@
 import { BrowserProvider, ethers } from "ethers"
 
+import { collector } from "../utils/env"
+
 export const TokenAddress = {
   CUSD_MAINNET: "0x765DE816845861e75A25fCA122bb6898B8B1282a",
   CUSD_TESTNET: "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1",
@@ -32,11 +34,11 @@ export async function transferCusdTokens(props: {
   const tokenAmount = ethers.parseUnits(amount.toString(), 18) // Assuming the token has 18 decimals
 
   // Transfer the tokens
-  // const tx = await tokenContract.transfer!(collector, tokenAmount)
-  // console.log("Transaction hash:", tx.hash)
+  const tx = await tokenContract.transfer!(collector, tokenAmount)
+  console.log("Transaction hash:", tx.hash)
 
   // Wait for the transaction to be mined
-  // const receipt = await tx.wait()
-  // console.log("Transaction confirmed in block:", receipt.blockNumber)
-  return userAddress as string
+  const receipt = await tx.wait()
+  console.log("Transaction confirmed in block:", receipt.blockNumber)
+  return tx.hash as string
 }
