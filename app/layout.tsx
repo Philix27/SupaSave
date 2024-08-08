@@ -1,6 +1,8 @@
 import "./globals.css"
 import { Metadata } from "next"
 
+import Provider from "./provider"
+
 export const metadata: Metadata = {
   title: {
     default: "SupaSave",
@@ -32,9 +34,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           //fontSans.variable
         }
       >
-        <div>
-          <div className="flex-1">{children}</div>
-        </div>
+        <Provider>
+          <div>
+            <div className="flex-1">{children}</div>
+          </div>
+        </Provider>
       </body>
     </html>
   )
