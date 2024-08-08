@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import { BrowserProvider, ethers } from "ethers"
-import { useAccount, useConnect } from "wagmi"
-import { injected } from "wagmi/connectors"
+import { BrowserProvider } from "ethers"
+import { useAccount } from "wagmi"
 
 export const useMinipay = () => {
   // const { connect } = useConnect()
