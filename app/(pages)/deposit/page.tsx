@@ -1,10 +1,12 @@
 "use client"
 
 import React from "react"
+import { ContractFn, useDeposit, useMain } from "@/contract"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
-import { FormData, schema } from "./schema"
+import { FormData, durationTransformer, schema } from "./schema"
 
 export default function DepositPage() {
   const {
@@ -16,8 +18,27 @@ export default function DepositPage() {
     resolver: zodResolver(schema),
   })
 
+  const { formattedBalance, userAddress } = useMain()
+  const { depositFunds } = useDeposit()
+
   const submitData = async (formData: FormData) => {
-    console.log("success")
+    try {
+      // await ContractFn.deposit({
+      //   userAddress: userAddress as `0x${string}`,
+      //   // userAddress: account.address as `0x${string}`,
+      //   purpose: formData.purpose,
+      //   timeInSeconds: durationTransformer(formData.duration),
+      //   amount: formData.amount,
+      // })
+      await depositFunds({
+        purpose: formData.purpose,
+        timeInSeconds: durationTransformer(formData.duration),
+        amount: formData.amount,
+      })
+      toast("Deposit Successful")
+    } catch (error) {
+      toast("Oops an error occured")
+    }
   }
 
   return (
@@ -28,7 +49,7 @@ export default function DepositPage() {
         >
           <div>
             <p className="text-sm">Wallet Balance:</p>
-            <h1 className="text-xl font-extrabold">0 cUSD</h1>
+            <h1 className="text-xl font-extrabold">{formattedBalance}cUSD</h1>
           </div>
           <img src={"./wallet2.png"} className="h-full w-[70px]" />
         </div>
@@ -97,7 +118,6 @@ export default function DepositPage() {
 
             <div className={`mt-6  flex items-center justify-center`}>
               <button
-                // onClick={() => connect({ connector: injected() })}
                 type="submit"
                 className={`rounded-lg bg-primary px-8  py-2 text-center font-bold text-white`}
               >

@@ -6,6 +6,7 @@ export * from "./abi"
 export * from "./cusdToken"
 export * from "./env"
 export * from "./useMinipay"
+export * from "./useMainHook"
 export * from "./utils"
 export const ContractFn = {
   ...func,

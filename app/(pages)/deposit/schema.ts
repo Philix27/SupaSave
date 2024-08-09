@@ -20,7 +20,7 @@ export const schema = z.object({
 
 export type FormData = z.infer<typeof schema>
 
-export function durationTranformer(duration: string): number {
+export function durationTransformer(duration: string): number {
   if (duration === "1week") {
     return 1000
   } else if (duration === "2weeks") {
