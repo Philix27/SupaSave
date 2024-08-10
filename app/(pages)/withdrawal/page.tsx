@@ -1,9 +1,11 @@
 "use client"
 
-import { Suspense, useEffect, useState } from "react"
+import { Suspense, useState } from "react"
 import { Loader } from "@/comps"
-import { useMinipay } from "@/contract"
+import { useMain, useMinipay } from "@/contract"
 import { useAccount, useConnect } from "wagmi"
+
+import SavingsCards from "./Savings"
 
 export default function WithdrawalPage() {
   const { address } = useAccount()
@@ -26,22 +28,6 @@ export default function WithdrawalPage() {
       <h1 className={`my-4 text-xl font-bold text-primary`}>Withdrawal</h1>
 
       <div className={`mt-2`}>
-        <div className={`flex items-start justify-between`}>
-          <p>Wallet Address:</p>
-          {userAddress && (
-            <p>
-              {userAddress!
-                .substring(0, 3)
-                .concat("***")
-                .concat(
-                  userAddress!.substring(
-                    userAddress!.length - 3,
-                    userAddress!.length
-                  )
-                )}
-            </p>
-          )}
-        </div>
         <div className={`mt-2 flex items-start justify-between`}>
           <p>Total Savings:</p>
           <p>$100</p>

@@ -1,13 +1,15 @@
-import * as func from "./fn"
 import { AppContractAbi } from "./abi"
 import { TokenAddress } from "./cusdToken"
+import * as func from "./fn"
 
 export * from "./abi"
 export * from "./cusdToken"
 export * from "./env"
 export * from "./useMinipay"
 export * from "./useMainHook"
+export * from "./useFn"
 export * from "./utils"
+
 export const ContractFn = {
   ...func,
 }
