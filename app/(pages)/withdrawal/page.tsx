@@ -2,16 +2,15 @@
 
 import { Suspense, useState } from "react"
 import { Loader } from "@/comps"
-import { useMain, useMinipay } from "@/contract"
-import { useAccount, useConnect } from "wagmi"
+import { useMain } from "@/contract"
 
 import SavingsCards from "./Savings"
 
 export default function WithdrawalPage() {
-  const [isLoading] = useState(true)
+
   const { userAddress } = useMain()
 
-  if (isLoading) {
+  if (!userAddress) {
     return (
       <div className="mt-[70px]">
         <Loader />

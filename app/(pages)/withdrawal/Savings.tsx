@@ -5,12 +5,11 @@ import { Loader } from "@/comps"
 import { ContractFn, useGetAllDeposit } from "@/contract"
 import { toast } from "sonner"
 
-// import { useGetAllDeposit } from "../hooks"
 import { canWithdraw, dateFromBigint, getDate } from "./fn"
 
 export default function SavingsCards(props: { address: `0x${string}` }) {
   const { data, isLoading, error } = useGetAllDeposit(props.address)
-  // const { isLoading } = useGetDeposit()
+
   if (isLoading) {
     return (
       <div className="mt-[70px]">
