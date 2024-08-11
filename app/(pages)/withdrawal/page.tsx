@@ -1,13 +1,12 @@
 "use client"
 
-import { Suspense, useState } from "react"
+import { Suspense } from "react"
 import { Loader } from "@/comps"
 import { useMain } from "@/contract"
 
 import SavingsCards from "./Savings"
 
 export default function WithdrawalPage() {
-
   const { userAddress } = useMain()
 
   if (!userAddress) {
